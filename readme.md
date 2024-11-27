@@ -38,7 +38,7 @@ Once you have Python 3 installed, open a terminal and navigate to the FOIA(s) fo
     > source .venv/bin/activate
 
 3. Install all prerequisites in the virtual environment you created:
-    > sudo pip install -r requirements.txt
+    > pip install -r requirements.txt
 
 4. Compile your executable, which will be configured for your operating system.
     > pyinstaller --onefile ./FOIAs.py   
@@ -70,7 +70,7 @@ Once you have Python 3 installed, open a terminal and navigate to the FOIA(s) fo
     > source .venv/bin/activate
 
 3. Install all prerequisites in the virtual environment you created:
-    > sudo pip install -r requirements.txt
+    > pip install -r requirements.txt
 
 4. Launch FOIA(s):
     > python3 FOIAs.py
