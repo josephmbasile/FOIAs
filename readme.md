@@ -3,7 +3,7 @@
 
 Welcome to FOIA(s)! This software will generate form letters (an advanced “mail merge”) allowing you to request sets of information using paper letters with tracking numbers. It is intended for professionals and advocates in the United States to use to request information from government offices under 5 U.S.C. §552, known as the “Freedom of Information Act” (FOIA). The complete text of FOIA and all official comments, analysis, and discussion form a part of this manual for all interactions you have with government offices while using this software in the United States. When tactfully used, form letters can be a powerful tool for shining a light on injustice or an unaddressed need in society. 
 
-## Version: 1.01 (Cajones)
+## Version: 1.02 (Blackbird)
 
 Developed in the United States by Joseph M. Basile. 
 
@@ -38,7 +38,7 @@ Once you have Python 3 installed, open a terminal and navigate to the FOIA(s) fo
     > source .venv/bin/activate
 
 3. Install all prerequisites in the virtual environment you created:
-    > pip install -r requirements.txt
+    > sudo pip install -r requirements.txt
 
 4. Compile your executable, which will be configured for your operating system.
     > pyinstaller --onefile ./FOIAs.py   
@@ -70,7 +70,7 @@ Once you have Python 3 installed, open a terminal and navigate to the FOIA(s) fo
     > source .venv/bin/activate
 
 3. Install all prerequisites in the virtual environment you created:
-    > pip install -r requirements.txt
+    > sudo pip install -r requirements.txt
 
 4. Launch FOIA(s):
     > python3 FOIAs.py
@@ -329,3 +329,13 @@ The left panel also shows the number of action items that are pending as well as
 ## Recommended Backups
 
 It is strongly reccomended that you back up your FOIA(s) folder and your documents respository regularly.
+
+
+## Release Log
+
+Version 1.01 (Cajones)
+1. Initial Commit
+Version 1.02 (Blackbird) 
+1. Minor Bug Fixes.
+2. Disabled the Generate Button on the Letters page.
+3. The Generate Application button now disables after the first click.

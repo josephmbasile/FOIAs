@@ -880,7 +880,7 @@ documentation_tab = [
 
 
 about_tab = [
-    [sg.Text(f"About FOIA(s): \nVersion 1.01 (Cajones)\n\nDeveloped in the United States by Joseph M. Basile \n\nSpecial Thanks to Kevin D. Hall and the Python, GitHub, and PySimpleGUI Communities \n\nDonations and Complaints Appreciated \nPayPal: josephmbasile@gmail.com \n\nMIT License 2024", expand_x=True, font=("",medium_print), justification="center", key="-Timekeeping_Records_Display-")],
+    [sg.Text(f"About FOIA(s): \nVersion 1.02 (Blackbird)\n\nDeveloped in the United States by Joseph M. Basile \n\nSpecial Thanks to Kevin D. Hall and the Python, GitHub, and PySimpleGUI Communities \n\nDonations and Complaints Appreciated \nPayPal: josephmbasile@gmail.com \n\nMIT License 2024", expand_x=True, font=("",medium_print), justification="center", key="-Timekeeping_Records_Display-")],
 ]
 
 
@@ -1429,7 +1429,7 @@ def create_database(values, current_console_messages,window, num, current_year):
         ["""To:['-new_line-']['-Responder_Preferred_Name-']['-new_line-']['-Letter_To_Field-']['-new_line-']From:['-new_line-']['-Letter_From_Field-']['-new_line-']Subject: 5 U.S.C. §552 FOIA Request- ['-Requested_Document-']['-new_line-']['-new_line-']Dear ['-Responder_Preferred_Name-'],['-new_line-']['-new_line-']   I'm writing today on behalf of ['-Applicant_Preferred_Name-'] to request ['-Requested_Records-'] that may be associated with the following record identifier: ['-Requested_Document-'].['-new_line-']['-new_line-']Please mail the requested records to my address, or provide instructions for next steps at your earliest availability.['-new_line-']['-new_line-']['-Organization_Name-'] is a discovery advocate only and does not provide legal advice to clients.['-new_line-']['-new_line-']Thank you, I appreciate your assistance in this matter.['-new_line-']['-new_line-']Sincerely,['-new_line-']['-Requester_Preferred_Name-']['-new_line-']['-new_line-']_______________________['-new_line-']['-Requester_Phone-'] ['-new_line-']['-Requester_Email-']""",f"""FOIA Request""","Notes: None",foia_session.current_time_display[0],foia_session.current_time_display[0]],
         ["""To:['-new_line-']['-Applicant_Preferred_Name-']['-new_line-']['-Applicant_Return_Address-']['-new_line-']From:['-new_line-']['-Letter_From_Field-']['-new_line-']Subject: FWD: 5 U.S.C. §552 FOIA Request- ['-Requested_Document-']['-new_line-']['-new_line-']Dear ['-Applicant_Preferred_Name-'],['-new_line-']['-new_line-']   I'm writing today to forward ['-Requested_Records-'] in relation to or associated with the following record identifier: ['-Requested_Document-'] ['-new_line-']['-new_line-']You requested this information on applicaton ['-Application_Number-'] which was entered into my database on ['-Application_Date-']. Other records in your request may still be pending. This letter and any attachments are provided for information only and no part of this communication should be construed as legal advice. ['-Organization_Name-'] disclaims all warranties express or implied. Please contact us if you need additional assistance.['-new_line-']['-new_line-']Thank you.['-new_line-']['-new_line-']Sincerely,['-new_line-']['-Requester_Preferred_Name-']['-new_line-']['-new_line-']_______________________['-new_line-']['-Requester_Phone-']['-new_line-']['-Requester_Email-']""",f"""Forwarding Letter""","Notes: None",foia_session.current_time_display[0],foia_session.current_time_display[0]],
         ["""To:['-new_line-']['-Letter_To_Field-']['-new_line-']From:['-new_line-']['-Letter_From_Field-']['-new_line-']Subject: 5 U.S.C. §552 FOIA Requests - Partner Offer['-new_line-']['-new_line-']Dear ['-Prospective_Partner-'],['-new_line-']['-new_line-']   I'm writing today to offer you a partnership position with ['-Organization_Name-']. The purpose of our organization is advocacy through discovery in legal cases, although we do not offer legal advice.['-new_line-']['-new_line-']Your position in ['-Organization_Name-'] will be: ['-new_line-']['-new_line-']['-Position Description-'] ['-new_line-']['-new_line-']Please respond to this letter by ['-Offer_Deadline-'] to indicate whether you accept. ['-new_line-']['-new_line-']Thank you.['-new_line-']['-new_line-']Sincerely,['-new_line-']['-Requester_Preferred_Name-']['-new_line-']['-new_line-']_______________________['-new_line-']['-Requester_Phone-']['-new_line-']['-Requester_Email-']""",f"""Partner Offer""","Notes: None",foia_session.current_time_display[0],foia_session.current_time_display[0]],
-        ["""To:['-new_line-']['-Letter_To_Field-']['-new_line-']From:['-new_line-']['-Letter_From_Field-']['-new_line-']Subject: 5 U.S.C. §552 FOIA Request- Requester Offer['-new_line-']['-new_line-']Dear ['-Prospective_Requester-'],['-new_line-']['-new_line-']   I'm writing today to offer you a requester position with ['-Organization_Name-']. The purpose of our organization is advocacy through discovery in legal cases. We forward information from government offices, but we do not offer legal advice.['-new_line-']['-new_line-']Your position in ['-Organization_Name-'] will be: ['-new_line-']['-new_line-']Requester: You will collect applications for FOIA requests and generate FOIA request letters. Once a reply has been received from the responding office, you'll forward that response to the applicant. You are not to offer any advice or analysis to the applicant, as we are not a law firm. Offering unathorized legal advice to clients may be grounds for separation from the organization.['-new_line-']['-new_line-']Your compensation will be: ['-Compensation_Details-']['-new_line-']['-new_line-']Please respond to this letter by ['-Offer_Deadline-'] to indicate whether you accept. We look forward to your response.['-new_line-']['-new_line-']Thank you.['-new_line-']['-new_line-']Sincerely,['-new_line-']['-Requester_Preferred_Name-']['-new_line-']['-new_line-']_______________________['-new_line-']['-Requester_Phone-']['-new_line-']['-Requester_Email-']""",f"""Requester Offer""","Notes: None",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["""To:['-new_line-']['-Letter_To_Field-']['-new_line-']From:['-new_line-']['-Letter_From_Field-']['-new_line-']Subject: 5 U.S.C. §552 FOIA Request- Requester Offer['-new_line-']['-new_line-']Dear ['-Responder_Preferred_Name-'],['-new_line-']['-new_line-']   I'm writing today to offer you a requester position with ['-Organization_Name-']. The purpose of our organization is advocacy through discovery in legal cases. We forward information from government offices, but we do not offer legal advice.['-new_line-']['-new_line-']Your position in ['-Organization_Name-'] will be: ['-new_line-']['-new_line-']Requester: You will collect applications for FOIA requests and generate FOIA request letters. Once a reply has been received from the responding office, you'll forward that response to the applicant. You are not to offer any advice or analysis to the applicant, as we are not a law firm. Offering unathorized legal advice to clients may be grounds for separation from the organization.['-new_line-']['-new_line-']Your compensation will be: ['-Compensation_Details-']['-new_line-']['-new_line-']Please respond to this letter by ['-Offer_Deadline-'] to indicate whether you accept. We look forward to your response.['-new_line-']['-new_line-']Thank you.['-new_line-']['-new_line-']Sincerely,['-new_line-']['-Requester_Preferred_Name-']['-new_line-']['-new_line-']_______________________['-new_line-']['-Requester_Phone-']['-new_line-']['-Requester_Email-']""",f"""Requester Offer""","Notes: None",foia_session.current_time_display[0],foia_session.current_time_display[0]],
     ]
 
 
@@ -1686,7 +1686,7 @@ def load_application_data(window,values):
         window['-Application_Delete_Document_Button-'].update(disabled=True)  
         window['-Application_Common_Requests_Input-'].update(disabled=True)  
         window['-Application_Add_Request_Button-'].update(disabled=True)  
-        window['-Application_Notes_Display-'].update(this_application[0]['Notes'],disabled=True) 
+        window['-Application_Notes_Display-'].update(f"{this_application[0]['Notes']}",disabled=True) 
         window['-Application_Template_Input-'].update(disabled=True)  
         window['-Application_Generate_Button-'].update(disabled=True)  
         window['-Application_Delete_Request_Button-'].update(disabled=True)  
@@ -1728,6 +1728,7 @@ def load_application_data(window,values):
 def generate_application(window,values,template_id):
    #print(foia_session.this_application['Applicant_ID'])
     #Find New Application Number
+    window['-Application_Generate_Button-'].update(disabled=True)
     count_applications_query = f"""SELECT MAX(Application_ID) FROM tbl_Applications;"""
     max_application = db.execute_read_query_dict(foia_session.connection,count_applications_query)
    #print(str(max_application))
@@ -1979,7 +1980,7 @@ def update_applications_view(window,values):
         foia_session.display_applications = []
         for application in these_applications:
             letter_ids = str(application['Letter_IDs'])
-            foia_session.display_applications.append([f"{application['Tracking_Number']}",f"{these_applicants[application['Applicant_ID']-1]['Preferred_Name']}",letter_ids,application['Created_Time']])
+            foia_session.display_applications.append([f"{application['Tracking_Number']}",f"{these_applicants[application['Applicant_ID']]['Preferred_Name']}",letter_ids,application['Created_Time']])
         window['-Applications_Content-'].update(foia_session.display_applications)
         window['-Application_Search_Input-'].update(disabled=False) 
     else:
@@ -1996,7 +1997,7 @@ def update_applications_view(window,values):
             window['-Application_Search_Input-'].update(disabled=True) 
             window['-Applications_Content-'].update([[f"{foia_session.organization_acronym}-APP-{10000}","Click", "New Application",f"{current_date_db}"]])
 
-    #Disable the form
+    #Clear and Disable the form
     window['-Application_Requester_Input-'].update(disabled=True)    
     window['-Application_Responder_Input-'].update(disabled=True)  
     window['-Application_Applicant_Input-'].update(disabled=True)  
@@ -2006,7 +2007,7 @@ def update_applications_view(window,values):
     window['-Application_Delete_Document_Button-'].update(disabled=True)  
     window['-Application_Common_Requests_Input-'].update(disabled=True)  
     window['-Application_Add_Request_Button-'].update(disabled=True)  
-    window['-Application_Notes_Display-'].update(disabled=True) 
+    window['-Application_Notes_Display-'].update("", disabled=True) 
     window['-Application_Template_Input-'].update(disabled=True)  
     window['-Application_Generate_Button-'].update(disabled=True)  
     window['-Application_Delete_Request_Button-'].update(disabled=True)  
@@ -3201,6 +3202,7 @@ def save_new_applicant(window,values):
     window['-Applicant_FirstName_Input-'].update(disabled=True)
     window['-Applicant_MiddleName_Input-'].update(disabled=True)
     window['-Applicant_LastName_Input-'].update(disabled=True)
+    window['-Applicant_Title_Input-'].update(disabled=True)
     window['-Applicant_FullName_Input-'].update(disabled=True)
     window['-Applicant_PreferredName_Input-'].update(disabled=True)
     window['-Applicant_ReturnAddress_Input-'].update(disabled=True)
@@ -3492,7 +3494,7 @@ def activate_new_letter_fields(window,values):
     window['-Message_View_Button-'].update("Message", disabled=False)
     window['-Letter_Message_Display-'].update("", disabled=False)
     window['-Letter_Template_Input-'].update(disabled=False)
-    window['-Letter_Generate_Button-'].update(disabled=False)
+    window['-Letter_Generate_Button-'].update(disabled=True)#Disabled to prevent bad Letter Codes
 
     #add_new_requester_fields(foia_session.window,values,foia_session.new_letter)
     foia_session.display_letters = [[f"""{foia_session.organization_acronym}-LTR-{foia_session.new_letter+10000}""","Add attributes","To the left","Thank You","Responder","Applicant","Requester"]]
@@ -3560,7 +3562,7 @@ def letter_message_button_function(window,values):
                     window['-Letter_Message_Display-'].update(fwd_content, disabled=False)  
                     window['-Letter_Template_Input-'].update(disabled=False)
                     window['-Letter_Template_Button-'].update(disabled=False)
-                    window['-Letter_Generate_Button-'].update(disabled=False)      
+                    window['-Letter_Generate_Button-'].update(disabled=True)     #  #Disabled to prevent bad Letter Codes
                 else:
                     window['-Letter_Message_Display-'].update(fwd_content, disabled=True)  
                     window['-Letter_Template_Input-'].update(disabled=True)
@@ -3571,7 +3573,7 @@ def letter_message_button_function(window,values):
                 window['-Letter_Message_Display-'].update("", disabled=False)  
                 window['-Letter_Template_Input-'].update(disabled=False)
                 window['-Letter_Template_Button-'].update(disabled=False)
-                window['-Letter_Generate_Button-'].update(disabled=False)
+                window['-Letter_Generate_Button-'].update(disabled=True)#Disabled to prevent bad Letter Codes
         else:
                 window['-Letter_Message_Display-'].update("")    
     elif window['-Message_View_Button-'].ButtonText == "Fwd Msg":
@@ -3591,13 +3593,13 @@ def letter_message_button_function(window,values):
                 window['-Letter_Message_Display-'].update("", disabled=False) 
                 window['-Letter_Template_Input-'].update(disabled=False)
                 window['-Letter_Template_Button-'].update(disabled=False)
-                window['-Letter_Generate_Button-'].update(disabled=False)  
+                window['-Letter_Generate_Button-'].update(disabled=True)  #Disabled to prevent bad Letter Codes
 
         else:
             window['-Letter_Message_Display-'].update("", disabled=False) 
             window['-Letter_Template_Input-'].update(disabled=False)
             window['-Letter_Template_Button-'].update(disabled=False)
-            window['-Letter_Generate_Button-'].update(disabled=False)        
+            window['-Letter_Generate_Button-'].update(disabled=True)      #Disabled to prevent bad Letter Codes  
 
 def load_letter_data(window,values):
    #print(values['-Letters_Display_Content-'])
