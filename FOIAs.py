@@ -1946,7 +1946,6 @@ def update_applications_view(window,values):
     these_applicants = db.execute_read_query_dict(foia_session.connection,get_applicants_query)
     #print(these_applicants)
     if(these_applicants) != [] and type(these_applicants) != str:
-
         display_applicants = []
         for applicant in these_applicants:
             display_applicants.append(f"{applicant['Applicant_ID']} {applicant['Preferred_Name']}")
@@ -1980,7 +1979,15 @@ def update_applications_view(window,values):
         foia_session.display_applications = []
         for application in these_applications:
             letter_ids = str(application['Letter_IDs'])
-            foia_session.display_applications.append([f"{application['Tracking_Number']}",f"{these_applicants[application['Applicant_ID']]['Preferred_Name']}",letter_ids,application['Created_Time']])
+            this_applicant_name = ""
+            
+
+            for applicant in these_applicants:
+                print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
+                if applicant['Applicant_ID'] == application['Applicant_ID']:
+                    this_applicant_name = f"{applicant['Preferred_Name']}"
+                    print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
+            foia_session.display_applications.append([f"{application['Tracking_Number']}",f"{this_applicant_name}",letter_ids,application['Created_Time']])
         window['-Applications_Content-'].update(foia_session.display_applications)
         window['-Application_Search_Input-'].update(disabled=False) 
     else:
@@ -1989,8 +1996,15 @@ def update_applications_view(window,values):
             foia_session.display_applications = []
 
             for application in these_applications:
+                this_applicant_name = ""
+                for applicant in these_applicants:
+                    print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
+                    if applicant['Applicant_ID'] == application['Applicant_ID']:
+                        this_applicant_name = f"{applicant['Preferred_Name']}"
+                        print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
+
                 letter_ids = str(application['Letter_IDs'])
-                foia_session.display_applications.append([f"{application['Tracking_Number']}",f"{these_applicants[application['Applicant_ID']-1]['Preferred_Name']}",letter_ids,application['Created_Time']])
+                foia_session.display_applications.append([f"{application['Tracking_Number']}",f"{this_applicant_name}",letter_ids,application['Created_Time']])
             window['-Applications_Content-'].update(foia_session.display_applications)
             window['-Application_Search_Input-'].update(disabled=False) 
         else:
