@@ -7,9 +7,9 @@ Welcome to FOIA(s)! This software will generate form letters (an advanced “mai
 
 Developed in the United States by Joseph M. Basile. 
 
-Special thanks Kevin D. Hall and to the Python, GitHub, and PySimpleGUI Communities. 
+Special thanks Kevin D. Hall et al.
 
-Donations and Complaints Appreciated. Paypal: josephmbasile@gmail.com
+Complaints Appreciated. Paypal: josephmbasile@gmail.com
 
 MIT License 2024
 
