@@ -1,4 +1,3 @@
-
 # Welcome to FOIA(s)!
 
 Welcome to FOIA(s)! This software will generate form letters (an advanced “mail merge”) allowing you to request sets of information using paper letters with tracking numbers. It is intended for professionals and advocates in the United States to use to request information from government offices under 5 U.S.C. §552, known as the “Freedom of Information Act” (FOIA). The complete text of FOIA and all official comments, analysis, and discussion form a part of this manual for all interactions you have with government offices while using this software in the United States. When tactfully used, form letters can be a powerful tool for shining a light on injustice or an unaddressed need in society. 
@@ -38,7 +37,7 @@ Once you have Python 3 installed, open a terminal and navigate to the FOIA(s) fo
     > source .venv/bin/activate
 
 3. Install all prerequisites in the virtual environment you created:
-    > sudo pip install -r requirements.txt
+    > pip install -r requirements.txt
 
 4. Compile your executable, which will be configured for your operating system.
     > pyinstaller --onefile ./FOIAs.py   
@@ -70,7 +69,7 @@ Once you have Python 3 installed, open a terminal and navigate to the FOIA(s) fo
     > source .venv/bin/activate
 
 3. Install all prerequisites in the virtual environment you created:
-    > sudo pip install -r requirements.txt
+    > pip install -r requirements.txt
 
 4. Launch FOIA(s):
     > python3 FOIAs.py
