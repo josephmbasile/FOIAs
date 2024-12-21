@@ -2,6 +2,9 @@
 
 Welcome to FOIA(s)! This software will generate form letters (an advanced “mail merge”) allowing you to request sets of information using paper letters with tracking numbers. It is intended for professionals and advocates in the United States to use to request information from government offices under 5 U.S.C. §552, known as the “Freedom of Information Act” (FOIA). The complete text of FOIA and all official comments, analysis, and discussion form a part of this manual for all interactions you have with government offices while using this software in the United States. When tactfully used, form letters can be a powerful tool for shining a light on injustice or an unaddressed need in society. 
 
+![A rendered application and sample letter data.](image_application_rendered.png)
+
+
 ## Version: 1.02 (Blackbird)
 
 Developed in the United States by Joseph M. Basile. 
@@ -84,6 +87,8 @@ Build an executable using pyinstaller or run from code. Please post your solutio
 ### MacOS
 
 Build an executable using pyinstaller or run from code. Please post your solution to a Git branch.
+
+
 
 
 ## Creating a Database
@@ -189,6 +194,9 @@ Templates are managed in a dedicated interface accessible from the menu by click
 ### FOIA Markup Language (Parcel Script)
 
 The program will load and populate a template each time it generates a letter. There are tags in the template which correspond to different pieces of information in the database, such as the Applicant's Preferred Name or the Responder's Mailing Address. When you select a tag from the tag list in the editor, it is automatically copied to your clipboard. You can then paste it into the Template Editor and hit Preview to see what it looks like. When you use the template to generate letters, the software will replace the tags with the corresponding piece of information and then generate a .pdf file.
+
+![A rendered template preview.](image_templates.png)
+
 
 Always use the new_line tag when starting a new line.
 
@@ -323,7 +331,7 @@ On the left, the usage statistics show the Carbon Sequestered by your letters in
 
 The left panel also shows the number of action items that are pending as well as the number of letters sent in the current day, month, and year. Your logo should appear below these statistics.
 
-
+![The dashboard with sample data.](image_dashboard.png)
 
 ## Recommended Backups
 
