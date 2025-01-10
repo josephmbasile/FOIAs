@@ -1805,7 +1805,7 @@ def generate_application(window,values,template_id):
 
     # convert all files ending in .png in a directory and its subdirectories tp PDF format
     dirname = folderpath
-    images = []
+    images = [] 
     for r, _, f in os.walk(dirname):
         for fname in f:
             if not fname.endswith(".png"):
