@@ -1797,7 +1797,7 @@ def generate_application(window,values,template_id):
                 os.replace(image,letter_image_destination)
             
             #Add the letter to the database
-            insert_letter_query = f"""INSERT INTO tbl_Letters (Tracking_Number, Application_ID, Requester_ID, Responder_ID, Document, Request, Message, Created_Time, Edited_Time, Date, Status, Letter_Code) VALUES ('{foia_session.this_letter['Tracking_Number']}','{foia_session.this_application['Application_ID']}','{foia_session.this_letter['Requester_ID']}', '{foia_session.this_letter['Responder_ID']}','{list(document)[0]}','{list(request)[0]}',"{foia_session.this_letter_body}",'{datetime.datetime.now()}','{datetime.datetime.now()}','{current_date_db}','Open','{foia_session.this_letter['Letter_Code']}');"""
+            insert_letter_query = f"""INSERT INTO tbl_Letters (Tracking_Number, Application_ID, Requester_ID, Responder_ID, Document, Request, Message, Created_Time, Edited_Time, Date, Status, Letter_Code) VALUES ('{foia_session.this_letter['Tracking_Number']}','{foia_session.this_application['Application_ID']}','{foia_session.this_letter['Requester_ID']}', '{foia_session.this_letter['Responder_ID']}','{list(f"{document}".replace("'","\'"))[0]}','{list(f"{request}".replace("'","\'"))[0]}',"{foia_session.this_letter_body}",'{datetime.datetime.now()}','{datetime.datetime.now()}','{current_date_db}','Open','{foia_session.this_letter['Letter_Code']}');"""
            #print(insert_letter_query)
             inserted_letter = db.execute_query(foia_session.connection,insert_letter_query)
             foia_session.console_log(f"Inserted {values['-Letter_ID_Input-']}: {inserted_letter}",foia_session.current_console_messages)
