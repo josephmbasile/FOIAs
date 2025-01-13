@@ -56,6 +56,10 @@ Once you have Python 3 installed, open a terminal and navigate to the FOIA(s) fo
 
 There are several ways to start FOIA(s). Find your operating system and follow the instructions below.
 
+### PySimpleGUI Keys
+
+This software runs using a plugin called PySimpleGUI and may require you to obtain a license key to unlock the plugin on your first startup. Non-commercial users can select a hobby license which was free as of January 2025. 
+
 ### Linux
 
 #### Running from code (recommended):
