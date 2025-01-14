@@ -11,7 +11,7 @@ Developed in the United States by Joseph M. Basile.
 
 Special thanks Kevin D. Hall et al.
 
-Complaints Appreciated. Paypal: josephmbasile@gmail.com
+Complaints Appreciated. josephmbasile@gmail.com
 
 MIT License 2024
 
