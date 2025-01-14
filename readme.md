@@ -21,32 +21,6 @@ A multi-core desktop or laptop computer running Linux, MacOS, or Windows, with t
 ## Installation
 Download the entire respository from GitHub. Unzip the repository to your desired storage location. 
 
-## Compiling the Software (Linux)
-
-Compiling this program from code requires Python 3. Please follow the installation instructions here: https://www.python.org/downloads/
-
-Once you have Python 3 installed, open a terminal and navigate to the FOIA(s) folder. Enter the following commands to create a virtual environment and install requirements:
-
-1. Create a virtual environment in the folder in a hidden subfolder called ".venv".
-   
-    > python3 -m venv .venv
-
-2. Activate the virtual environment in the terminal:
-   
-    > source .venv/bin/activate
-
-3. Install all prerequisites in the virtual environment you created:
-    > pip install -r requirements.txt
-
-4. Compile your executable, which will be configured for your operating system.
-    > pyinstaller --onefile ./FOIAs.py   
-    
-5. Copy the executable into the FOIA(s) folder:
-    > cp dist/FOIAs ./FOIAs.exe
-
-6. Consider sharing your executable on a GitHub branch with operating system information. Thank you.
-
-
 
 ## Opening the Software
 
@@ -78,6 +52,17 @@ Once you have Python 3 installed, open a terminal and navigate to the FOIA(s) fo
 
 The Graphical User Interface (GUI) will pop up showing the Dashboard or the PySimpleGUI license menu.
 
+Subsequent startups:
+
+1. Open a terminal and navigate to the FOIA(s) folder.
+   
+2. Activate the virtual environment:
+
+    > source .venv/bin/activate
+
+3. Launch FOIA(s):
+
+    > python3 FOIAs.py
 
 ### Windows
 
@@ -92,6 +77,35 @@ Build an executable using pyinstaller or run from code. Please post your solutio
 This software's graphics are powered by a plugin called PySimpleGUI and it may require you to obtain a license key to unlock the plugin on your first startup. Non-commercial users can select a hobby license which was free as of January 2025.
 
 https://www.pysimplegui.com/faq
+
+
+## Compiling the Software (Linux)
+
+You can choose to compile an executable file for your operating system. These instructions were creating using Debian Linux. 
+
+Compiling this program from code requires Python 3. Please follow the installation instructions here: https://www.python.org/downloads/
+
+Once you have Python 3 installed, open a terminal and navigate to the FOIA(s) folder. Enter the following commands to create a virtual environment and install requirements:
+
+1. Create a virtual environment in the folder in a hidden subfolder called ".venv".
+   
+    > python3 -m venv .venv
+
+2. Activate the virtual environment in the terminal:
+   
+    > source .venv/bin/activate
+
+3. Install all prerequisites in the virtual environment you created:
+    > pip install -r requirements.txt
+
+4. Compile your executable, which will be configured for your operating system.
+    > pyinstaller --onefile ./FOIAs.py   
+    
+5. Copy the executable into the FOIA(s) folder:
+    > cp dist/FOIAs ./FOIAs.exe
+
+6. Consider sharing your executable on a GitHub branch with operating system information. Thank you.
+
 
 
 
