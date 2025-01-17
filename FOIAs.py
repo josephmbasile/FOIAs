@@ -1797,8 +1797,10 @@ def generate_application(window,values,template_id):
                 os.replace(image,letter_image_destination)
             
             #Add the letter to the database
-            insert_letter_query = f"""INSERT INTO tbl_Letters (Tracking_Number, Application_ID, Requester_ID, Responder_ID, Document, Request, Message, Created_Time, Edited_Time, Date, Status, Letter_Code) VALUES ('{foia_session.this_letter['Tracking_Number']}','{foia_session.this_application['Application_ID']}','{foia_session.this_letter['Requester_ID']}', '{foia_session.this_letter['Responder_ID']}','{list(f"{document}".replace("'","\'"))[0]}','{list(f"{request}".replace("'","\'"))[0]}',"{foia_session.this_letter_body}",'{datetime.datetime.now()}','{datetime.datetime.now()}','{current_date_db}','Open','{foia_session.this_letter['Letter_Code']}');"""
-           #print(insert_letter_query)
+            print(f"document {document}")
+            print(f"request {request}")
+            insert_letter_query = f"""INSERT INTO tbl_Letters (Tracking_Number, Application_ID, Requester_ID, Responder_ID, Document, Request, Message, Created_Time, Edited_Time, Date, Status, Letter_Code) VALUES ('{foia_session.this_letter['Tracking_Number']}','{foia_session.this_application['Application_ID']}','{foia_session.this_letter['Requester_ID']}', '{foia_session.this_letter['Responder_ID']}','{f"{document[0]}".replace("'","''")}','{f"{request[0]}".replace("'","''")}','{foia_session.this_letter_body.replace("'","''")}','{datetime.datetime.now()}','{datetime.datetime.now()}','{current_date_db}','Open','{foia_session.this_letter['Letter_Code']}');"""
+            print(insert_letter_query)
             inserted_letter = db.execute_query(foia_session.connection,insert_letter_query)
             foia_session.console_log(f"Inserted {values['-Letter_ID_Input-']}: {inserted_letter}",foia_session.current_console_messages)
 
@@ -1972,7 +1974,7 @@ def update_applications_view(window,values):
     #Populate the Applications List
     applications_search_term = values['-Application_Search_Input-']
    #print(f"applications_search_term: {applications_search_term}")
-    get_applications_query = f"""SELECT * FROM tbl_Applications;"""
+    get_applications_query = f"""SELECT * FROM tbl_Applications ORDER BY Application_ID DESC;"""
     if applications_search_term != "":
         get_applications_query = f"""SELECT * FROM tbl_Applications WHERE Tracking_Number LIKE '%{applications_search_term}%' OR Letter_IDs LIKE '%{applications_search_term}%' OR Documents LIKE '%{applications_search_term}%' OR Requests LIKE '%{applications_search_term}%' OR Notes LIKE '%{applications_search_term}%' OR Record_Location LIKE '%{applications_search_term}%';""" #Write the search function
         these_applications = db.execute_read_query_dict(foia_session.connection,get_applications_query)        
@@ -1983,10 +1985,10 @@ def update_applications_view(window,values):
             
 
             for applicant in these_applicants:
-                print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
+                #print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
                 if applicant['Applicant_ID'] == application['Applicant_ID']:
                     this_applicant_name = f"{applicant['Preferred_Name']}"
-                    print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
+                    #print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
             foia_session.display_applications.append([f"{application['Tracking_Number']}",f"{this_applicant_name}",letter_ids,application['Created_Time']])
         window['-Applications_Content-'].update(foia_session.display_applications)
         window['-Application_Search_Input-'].update(disabled=False) 
@@ -1998,10 +2000,10 @@ def update_applications_view(window,values):
             for application in these_applications:
                 this_applicant_name = ""
                 for applicant in these_applicants:
-                    print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
+                    #print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
                     if applicant['Applicant_ID'] == application['Applicant_ID']:
                         this_applicant_name = f"{applicant['Preferred_Name']}"
-                        print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
+                        #print(f"Applicant Identified: {applicant['Applicant_ID']} and {application['Applicant_ID']}")
 
                 letter_ids = str(application['Letter_IDs'])
                 foia_session.display_applications.append([f"{application['Tracking_Number']}",f"{this_applicant_name}",letter_ids,application['Created_Time']])
@@ -2131,12 +2133,12 @@ def update_letters_view(window,values):
     #Retrieve the letters
     retrieve_letters_query = f"""SELECT * FROM tbl_Letters WHERE Tracking_Number LIKE '%{letters_search_term}%' OR Application_ID LIKE '%{letters_search_term}%' OR Requester_ID LIKE '{these_requesters[0]['Requester_ID']}' OR Responder_ID LIKE '{these_responders[0]['Responder_ID']}' OR Date LIKE '%{letters_search_term}%' OR Status LIKE '%{letters_search_term}%' OR Document LIKE '%{letters_search_term}%' OR Request LIKE '%{letters_search_term}%' OR Message LIKE '%{letters_search_term}%' OR Record LIKE '%{letters_search_term}%' OR Response LIKE '%{letters_search_term}%' OR Forwarding_Letter LIKE '%{letters_search_term}%' OR Forwarding_Letter_Content LIKE '%{letters_search_term}%' OR Created_Time LIKE '%{letters_search_term}%' OR Letter_Code LIKE '%{letters_search_term}%';"""
     if letters_search_term == "" or letters_search_term == None:
-        retrieve_letters_query = f"""SELECT * FROM tbl_Letters WHERE Date > '{current_year}/01/01' ORDER BY Date ASC;"""    
+        retrieve_letters_query = f"""SELECT * FROM tbl_Letters ORDER BY Letter_ID DESC;"""    
     
     these_letters = db.execute_read_query_dict(foia_session.connection,retrieve_letters_query)
-   #print(f"retrieve_letters_query: {retrieve_letters_query}")
+    #print(f"retrieve_letters_query: {retrieve_letters_query}")
     foia_session.letter_saved == False
-   #print(f'these_letters: {these_letters}')
+    #print(f'these_letters: {these_letters}')
     if len(these_letters) == 0 and retrieve_letters_query == f"""SELECT * FROM tbl_Letters WHERE Date > '{current_year}/01/01' ORDER BY Date ASC;""" :
         letters_display = [["0","No letters,","create a","New Letter","to get","started,","Requester."]]
         window['-Letters_Display_Content-'].update(letters_display)
