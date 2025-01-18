@@ -4002,6 +4002,47 @@ def convert_pdf_to_png(image_url):
         return "Error: File is not a pdf"
 
 
+
+def update_database_properties(window,values):
+    foia_session.organization_name = f"{values['-edit_db_name-']}".replace("'","''")
+    foia_session.organization_address = f"{values['-Edit_Organization_Address-']}".replace("'","''")
+    #foia_session.logo = f"{values['-Edit_Organization_Logo-']}".replace("'","''")
+    foia_session.organization_acronym = f"{values['-Edit_Organization_Acronym-']}".replace("'","''")
+    foia_session.manager_firstname = f"{values['-Edit_Manager_First-']}".replace("'","''")
+    foia_session.manager_middlename = f"{values['-Edit_Manager_Middle-']}".replace("'","''")
+    foia_session.manager_lastname = f"{values['-Edit_Manager_Last-']}".replace("'","''")
+    foia_session.manager_preferredname = f"{values['-Edit_Manager_Preferred-']}".replace("'","''")
+    foia_session.manager_fullname = f"{values['-Edit_Manager_Full-']}".replace("'","''")
+    foia_session.manager_title = f"{values['-Edit_Manager_Title-']}".replace("'","''")
+    foia_session.organization_phone = f"{values['-Edit_Organization_Phone-']}".replace("'","''")
+    foia_session.organization_email = f"{values['-Edit_Organization_Email-']}".replace("'","''")
+    foia_session.documents_location = f"{values['-Edit_Documents_Repository-']}".replace("'","''")
+    foia_session.organization_notes = f"{values['-Edit_Organization_Notes-']}".replace("'","''")
+
+    database_properties = [
+        ["Organization Name",f"{foia_session.organization_name}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Address",f"{foia_session.organization_address}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Organization Logo",f"{foia_session.logo}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Organization Acronym",f"{foia_session.organization_acronym}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Manager First Name",f"{foia_session.manager_firstname}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Manager Middle Name",f"{foia_session.manager_middlename}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Manager Last Name",f"{foia_session.manager_lastname}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Manager Preferred Name",f"{foia_session.manager_preferredname}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Manager Full Name",f"{foia_session.manager_fullname}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Manager Title",f"{foia_session.manager_title}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Organization Phone",f"{foia_session.organization_phone}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Organization Email",f"{foia_session.organization_email}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Documents Repository Location",f"{foia_session.documents_location}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+        ["Organization Notes",f"{foia_session.organization_notes}","",foia_session.current_time_display[0],foia_session.current_time_display[0]],
+    ]    
+    for db_property in database_properties:
+        set_properties_query= f"""UPDATE tbl_Properties SET Property_Value = '{db_property[1]}', Edited_Time = '{db_property[3]}' WHERE Property_Name = '{db_property[0]}';"""
+        updated_properties = db.execute_query(foia_session.connection,set_properties_query)
+        foia_session.console_log(f"Query executed: {updated_properties}",foia_session.current_console_messages)
+
+
+
+
 #------------------------------------------Section 5 Window and Event Loop
 
 # ________           _______   ___      ___ _______   ________   _________        ___       ________  ________  ________   
@@ -4416,7 +4457,8 @@ while True:
                     foia_session.window[foia_session.tab_key_list[i]].update(visible=False)
             if foia_session.database_loaded:
                 update_properties_view(foia_session.window, values, foia_session.connection)            
- 
+        elif event == "-Save_Revised_Properties-":
+            update_database_properties(foia_session.window,values)
         elif event == "View Applicants":
             this_tab_index = 12
             for i in range(len(foia_session.tab_key_list)):
