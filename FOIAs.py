@@ -459,10 +459,9 @@ view_applications_column_height = len(view_application_labels_layout)*26
 application_doc_table_layout = [
     [sg.Table([[f""]],row_height=20, col_widths=[26], cols_justification=["c"], auto_size_columns=False, headings=["Document Number"], num_rows=4, expand_x=True, expand_y=True, font=("",medium_print), enable_events=True, justification="Center", key="-Application_Documents_Display-", background_color=detailed_information_color)],
 ]
-
+#Todo: enable_cell_editing=True, #Requires functions to update the class variables
 application_req_table_layout = [
-    [sg.Table([[f""]], row_height=20, col_widths=[26], cols_justification=["c"], auto_size_columns=False, headings=["Request"], num_rows=4, expand_x=True, expand_y=True, font=("",medium_print), enable_events=True, justification="Center", key="-Application_Requests_Display-", background_color=detailed_information_color)],
-
+    [sg.Table([[f""]], row_height=20,  col_widths=[26], cols_justification=["c"], auto_size_columns=False, headings=["Request"], num_rows=4, expand_x=True, expand_y=True, font=("",medium_print), enable_events=True, justification="Center", key="-Application_Requests_Display-", background_color=detailed_information_color)],
 ]
 
 common_requests = ["A list or index of followup actions.","Hearing Dates","Meeting Notes","Document Text","Document List or Index","Evidence Documentation", "Photographs", "Supporting Depositions","Stenographic Notes","Hearing Summaries","911 Audio", "Call Audio", "Audio", "Video", "Bodycam Footage", "Dashcam Footage", "Electronic Media","Witness Statements"]
@@ -3003,7 +3002,7 @@ def update_new_template_list(window,values):
     window['-Templates_List-'].update([[f"""{foia_session.new_template_number} {new_template_name}"""]])
 
 def activate_new_template_fields(window,values):
-    new_template_format = f"""To:['-new_line-']['-Letter_To_Field-']['-new_line-']['-new_line-']From:['-new_line-']['-Letter_From_Field-']['-new_line-']['-new_line-']Subject: ['-new_line-']['-new_line-']Dear ['-Requester_Preferred_Name-'],['-new_line-']   Body Content goes here.['-new_line-']['-new_line-']Sincerely,['-new_line-']['-Requester_Preferred_Name-']['-new_line-']________________________['-new_line-']['-Requester_Phone-']['-new_line-']['-Requester_Email-']"""
+    new_template_format = f"""To:['-new_line-']['-Letter_To_Field-']['-new_line-']['-new_line-']From:['-new_line-']['-Letter_From_Field-']['-new_line-']['-new_line-']Subject: ['-new_line-']['-new_line-']Dear ['-Responder_Preferred_Name-'],['-new_line-']   Body Content goes here.['-new_line-']['-new_line-']Sincerely,['-new_line-']['-Requester_Preferred_Name-']['-new_line-']________________________['-new_line-']['-Requester_Phone-']['-new_line-']['-Requester_Email-']"""
     window['-Templates_Edit_Content-'].update(new_template_format)
     window['-Templates_Notes_Display-'].update("Notes: ")
     get_max_template_query = f"""SELECT MAX(Template_ID) FROM tbl_Templates;"""
